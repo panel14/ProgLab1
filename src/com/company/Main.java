@@ -19,16 +19,14 @@ public class Main {
         Roof roof = new Roof();
         roof.put(bob);
         roof.put(mal);
+        roof.put(Karl);
+        roof.put(Ktulhu);
 
-        Roof roof1 = new Roof();
-        roof1.put(Karl);
-        roof1.put(Ktulhu);
+        roof.startAction();
 
-        //roof.startAction();
-
-        System.out.println(roof.equals(roof1));
+        /*System.out.println(roof.equals(roof1));
 
         System.out.println(roof.hashCode());
-        System.out.println(roof1.hashCode());
+        System.out.println(roof1.hashCode());*/
     }
 }

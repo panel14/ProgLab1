@@ -90,7 +90,7 @@ public class Roof {
         if (res[1] != -1){
             System.out.println("Maybe you show as something, " + freaks.get(res[0]).getName() + "?");
             freaks.get(res[1]).doSome(getAction());
-            freaks.get(res[1]).fly();
+            //freaks.get(res[1]).fly();
         }
         printNewLine();
     }

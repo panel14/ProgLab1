@@ -79,7 +79,7 @@ public class Freak extends Creature implements Flying, Log {
 
     @Override
     public void fly() {
-        System.out.printf("%s is flying! Awesome!");
+        System.out.printf("%s is flying! Awesome!", getName());
     }
 
     @Override
