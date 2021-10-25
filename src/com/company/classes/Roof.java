@@ -16,9 +16,31 @@ public class Roof {
 
     public Roof(){
         roofCount++;
+        RoofManager.getRoofManager().putRoof(this);
     }
 
     public static class RoofManager{
+        private static RoofManager roofManager;
+        private static ArrayList<Roof> roofs;
+
+        private RoofManager(){
+            roofs = new ArrayList<Roof>();
+        };
+
+        public void putRoof(Roof roof){
+            roofs.add(roof);
+        }
+
+        public ArrayList<Roof> getRoofsList(){
+            return roofs;
+        }
+
+        public static RoofManager getRoofManager(){
+            if (roofManager == null)
+                roofManager = new RoofManager();
+            return roofManager;
+        }
+
         public int getRoofCount(){
             return Roof.roofCount;
         }
@@ -40,8 +62,16 @@ public class Roof {
         people.add(human);
     }
 
+    public int getPeopleSize(){
+        return people.size();
+    }
+
     public void put(Freak freak){
         freaks.add(freak);
+    }
+
+    public int getFreaksSize(){
+        return freaks.size();
     }
 
     public void startAction(){

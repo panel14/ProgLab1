@@ -62,8 +62,9 @@ public class Freak extends Creature implements Flying, Log {
             if (!isAnsExist){
                 System.out.printf("%s: So, I don't now that I should to answer... Could you prompt?\n", getName());
                 answer = in.nextLine();
-                dialogDict.put(unknownAns, answer);
+                dialogDict.put(unknownAns, answer + "\n");
                 System.out.printf("%s: Thank you, %s! I get it now.\n", getName(), userName);
+                isAnsExist = true;
             }
 
             System.out.printf("%s: Thank you, %s, for dialog, but I need to go. Bye!\n", getName(), userName);

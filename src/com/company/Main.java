@@ -3,14 +3,15 @@ package com.company;
 import com.company.classes.Freak;
 import com.company.classes.People;
 import com.company.classes.Roof;
-import com.company.enums.Actions;
+import com.company.interfaces.Monitoring;
 
-import java.io.Console;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         People bob = new People("Bob", 19, false);
         People mal = new People("Bob", 19, false);
 
@@ -25,12 +26,39 @@ public class Main {
 
         roof.startAction();
 
-        Roof.RoofManager roofManager = new Roof.RoofManager();
-        System.out.println(roofManager.getRoofCount());
-        roofManager.getLocation();
-        roofManager.setLocation("Saint-Petersburg");
-
         Freak.FreakToUser god = Karl.new FreakToUser();
-        god.pickUp();
+
+/*        god.speakWithUser();
+        god.speakWithUser();
+
+        People den = new People();
+        den.showInLog();*/
+
+        Monitoring monitoring = new Monitoring() {
+
+            @Override
+            public void getResume() {
+                Roof.RoofManager roofManager = Roof.RoofManager.getRoofManager();
+                ArrayList<Roof> roofs = roofManager.getRoofsList();
+                printIntro();
+                System.out.printf(" Roofs count - %d\n", roofs.size());
+                printSeparator();
+                for (int i = 0; i < roofs.size(); i++){
+                    System.out.printf("Roof %d\nPeople count: %d\nFreaks count: %d\n", (i + 1),
+                            roofs.get(i).getPeopleSize(), roofs.get(i).getFreaksSize());
+                    printSeparator();
+                }
+            }
+
+            private void printSeparator(){
+                System.out.println("---------------------------");
+            }
+
+            private void printIntro(){
+                System.out.println("-----Monitoring System-----");
+            }
+        };
+
+        monitoring.getResume();
     }
 }

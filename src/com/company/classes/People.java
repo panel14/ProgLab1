@@ -4,12 +4,32 @@ import com.company.enums.Actions;
 import com.company.interfaces.Log;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class People extends Creature implements Log {
     public boolean isCleaner = false;
 
     public People(){
-        super();
+        class MakeByUser{
+            private Scanner in = new Scanner(System.in);
+
+            public String createName(){
+                System.out.println("Unknown : Hello, Creator. What's my name?");
+                return in.nextLine();
+            }
+
+            public int createAge(String name){
+                System.out.printf("%s : What's my age, Creator?\n",name);
+                return in.nextInt();
+            }
+        }
+
+        MakeByUser god = new MakeByUser();
+        setName(god.createName());
+        setAge(god.createAge(this.getName()));
+        System.out.printf("%s: I'm not a cleaner I deserve.\n", getName());
+        isCleaner = false;
+        System.out.printf("%s is created!\n", getName());
     }
 
     public People(String name, int age){
