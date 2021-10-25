@@ -6,10 +6,11 @@ import com.company.classes.Roof;
 import com.company.enums.Actions;
 
 import java.io.Console;
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         People bob = new People("Bob", 19, false);
         People mal = new People("Bob", 19, false);
 
@@ -24,9 +25,12 @@ public class Main {
 
         roof.startAction();
 
-        /*System.out.println(roof.equals(roof1));
+        Roof.RoofManager roofManager = new Roof.RoofManager();
+        System.out.println(roofManager.getRoofCount());
+        roofManager.getLocation();
+        roofManager.setLocation("Saint-Petersburg");
 
-        System.out.println(roof.hashCode());
-        System.out.println(roof1.hashCode());*/
+        Freak.FreakToUser god = Karl.new FreakToUser();
+        god.pickUp();
     }
 }

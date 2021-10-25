@@ -1,8 +1,14 @@
 package com.company.classes;
 
+import com.company.Main;
 import com.company.enums.Actions;
 import com.company.interfaces.Flying;
 import com.company.interfaces.Log;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Freak extends Creature implements Flying, Log {
 
@@ -12,6 +18,57 @@ public class Freak extends Creature implements Flying, Log {
 
     public Freak(String name, int age){
         super(name, age);
+    }
+
+    public class FreakToUser {
+        private Map<String, String> dialogDict = new HashMap<String, String>();
+        private static String userName = "";
+        private String answer = "";
+        private Scanner in = new Scanner(System.in);
+
+        public FreakToUser(){
+            dialogDict.put("normal", "Oh, what's great!\n");
+            dialogDict.put("bad", "That's really sad, but don't worry! Be happy!\n");
+            dialogDict.put("great", "Glad to heard it!!!\n");
+        }
+
+        public void pickUp() throws IOException {
+            if (userName.equals("")){
+                System.out.printf("%s: Hi, man or girl! What's your name?\n", getName());
+                userName = in.nextLine();
+            }
+            System.out.printf("%s: Nice to meet you, %s!\n", getName(), userName);
+        }
+
+        public void speakWithUser() throws IOException {
+            boolean isAnsExist = true;
+            String unknownAns = "";
+
+            pickUp();
+
+            System.out.printf("%s: So, %s, how are you?\n", getName(), userName);
+            answer = in.nextLine();
+
+            String[] keys = dialogDict.keySet().toArray(new String[0]);
+
+            for (int i = 0; i < keys.length; i++){
+                if (answer.contains(keys[i])){
+                    System.out.printf("%s: %s", getName(), dialogDict.get(keys[i]));
+                    continue;
+                }
+                isAnsExist = false;
+                unknownAns = answer;
+            }
+            if (!isAnsExist){
+                System.out.printf("%s: So, I don't now that I should to answer... Could you prompt?\n", getName());
+                answer = in.nextLine();
+                dialogDict.put(unknownAns, answer);
+                System.out.printf("%s: Thank you, %s! I get it now.\n", getName(), userName);
+            }
+
+            System.out.printf("%s: Thank you, %s, for dialog, but I need to go. Bye!\n", getName(), userName);
+            fly();
+        }
     }
 
     @Override

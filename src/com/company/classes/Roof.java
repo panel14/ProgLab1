@@ -10,6 +10,29 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Roof {
+
+    private static int roofCount = 0;
+    private static String location = "Silicon Village";
+
+    public Roof(){
+        roofCount++;
+    }
+
+    public static class RoofManager{
+        public int getRoofCount(){
+            return Roof.roofCount;
+        }
+
+        public void getLocation(){
+            System.out.printf("Manager: We at %s now.\n", Roof.location);
+        }
+
+        public void setLocation(String location){
+            Roof.location = location;
+            System.out.printf("Manager: Now we're moving to %s.\n", location);
+        }
+    }
+
     private ArrayList<People> people = new ArrayList<People>();
     private ArrayList<Freak> freaks = new ArrayList<Freak>();
 

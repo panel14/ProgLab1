@@ -8,14 +8,6 @@ import java.util.Random;
 public class People extends Creature implements Log {
     public boolean isCleaner = false;
 
-    public boolean getCleaner(){
-        return isCleaner;
-    }
-
-    public void setCleaner(boolean isCleaner){
-        this.isCleaner = isCleaner;
-    }
-
     public People(){
         super();
     }
