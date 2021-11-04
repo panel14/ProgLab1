@@ -32,7 +32,7 @@ public class Freak extends Creature implements Flying, Log {
             dialogDict.put("great", "Glad to heard it!!!\n");
         }
 
-        public void pickUp() throws IOException {
+        public void pickUp() {
             if (userName.equals("")){
                 System.out.printf("%s: Hi, man or girl! What's your name?\n", getName());
                 userName = in.nextLine();
@@ -40,7 +40,20 @@ public class Freak extends Creature implements Flying, Log {
             System.out.printf("%s: Nice to meet you, %s!\n", getName(), userName);
         }
 
-        public void speakWithUser() throws IOException {
+        public void tellAJoke() throws TerribleJokeException{
+            pickUp();
+
+            System.out.printf("%s: Tell me some funny, %s!\n", getName(), userName);
+            String joke = in.nextLine();
+            if (joke.length() < 25)
+                throw new TerribleJokeException("Terrible joke detected");
+            else{
+                System.out.printf("%s: Hahahaha! You're soo funny %s!\n", getName(), userName);
+                controlStats(5);
+            }
+        }
+
+        public void speakWithUser() {
             boolean isAnsExist = true;
             String unknownAns = "";
 
@@ -114,6 +127,16 @@ public class Freak extends Creature implements Flying, Log {
         speak("Its can be only one, " + freak.getName());
         freak.controlStats(-10);
         freak.reactOnInter(-10,this);
+    }
+
+    @Override
+    public void setSpecialPhrase(String phrase) {
+        if (phrase.contains("Hello"))
+            throw new SpecialPhraseException("Phrase is too common");
+        else if (getName().equals("Batman") && !(phrase.contains("GDE DETONATOR")))
+            throw new SpecialPhraseException("This freak must say \"GDE DETONATOR\"");
+        else
+            this.specialPhrase = phrase;
     }
 
     @Override

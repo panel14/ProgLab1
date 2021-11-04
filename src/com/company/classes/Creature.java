@@ -9,7 +9,7 @@ public abstract class Creature {
     private String name;
     private int age;
     protected int fun = 50;
-    public String specialPhrase = "Change my specialPhrase, please";
+    protected String specialPhrase = "Change my specialPhrase, please";
 
     public String getName(){
         return name;
@@ -25,6 +25,10 @@ public abstract class Creature {
 
     public void setAge(int age){
         this.age = (age > 0) ? age : 18;
+    }
+
+    public String getSpecialPhrase(){
+        return specialPhrase;
     }
 
     public Creature(){
@@ -59,5 +63,7 @@ public abstract class Creature {
     public abstract void interactWith(People human);
 
     public abstract void interactWith(Freak freak);
+
+    public abstract void setSpecialPhrase (String phrase) throws SpecialPhraseException;
 
 }

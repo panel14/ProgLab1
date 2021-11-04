@@ -100,6 +100,15 @@ public class People extends Creature implements Log {
     }
 
     @Override
+    public void setSpecialPhrase(String phrase){
+        if (phrase.contains("Hello") || phrase.contains(getName())){
+            throw new SpecialPhraseException("Phrase is too common");
+        }
+        else
+            this.specialPhrase = phrase;
+    }
+
+    @Override
     protected void reactOnInter(int funChange, Freak slave) {
         speak("Of course, "+ slave.getName() + "! I'll be happy to see it!.");
         funChange += 5;

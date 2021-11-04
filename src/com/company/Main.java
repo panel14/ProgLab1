@@ -1,8 +1,6 @@
 package com.company;
 
-import com.company.classes.Freak;
-import com.company.classes.People;
-import com.company.classes.Roof;
+import com.company.classes.*;
 import com.company.interfaces.Monitoring;
 
 import java.io.IOException;
@@ -33,6 +31,15 @@ public class Main {
 
         People den = new People();
         den.showInLog();*/
+
+        Ktulhu.setSpecialPhrase("Hello, I'm" + Ktulhu.getName());
+
+        try {
+            god.tellAJoke();
+        } catch (TerribleJokeException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Change your joke please, it's not funny");
+        }
 
         Monitoring monitoring = new Monitoring() {
 
