@@ -10,8 +10,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        People bob = new People("Bob", 19, false);
-        People mal = new People("Bob", 19, false);
+        People bob = new People("Malish", 19, false);
+        People mal = new People("Maike", 19, false);
 
         Freak Karl = new Freak("Bob",19);
         Freak Ktulhu = new Freak("Ktulhu", 1000);
@@ -26,13 +26,13 @@ public class Main {
 
         Freak.FreakToUser god = Karl.new FreakToUser();
 
-/*        god.speakWithUser();
+        god.speakWithUser();
         god.speakWithUser();
 
         People den = new People();
-        den.showInLog();*/
+        den.showInLog();
 
-        Ktulhu.setSpecialPhrase("Hello, I'm" + Ktulhu.getName());
+        //Ktulhu.setSpecialPhrase("Hello, I'm" + Ktulhu.getName());
 
         try {
             god.tellAJoke();

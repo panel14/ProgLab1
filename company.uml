@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.company</OriginalElement>
+  <nodes>
+    <node x="0.0" y="380.0">com.company.classes.Freak</node>
+    <node x="381.0" y="851.0">com.company.classes.SpecialPhraseException</node>
+    <node x="240.41666666666666" y="391.0">com.company.classes.People</node>
+    <node x="541.6666666666667" y="392.0">com.company.classes.Roof.RoofManager</node>
+    <node x="0.0" y="851.0">com.company.Main</node>
+    <node x="807.6666666666667" y="0.0">com.company.enums.Actions</node>
+    <node x="634.0" y="851.0">com.company.classes.TerribleJokeException</node>
+    <node x="130.66666666666666" y="132.0">com.company.interfaces.Log</node>
+    <node x="1.25" y="132.0">com.company.interfaces.Flying</node>
+    <node x="194.0" y="851.0">com.company.interfaces.Monitoring</node>
+    <node x="566.1666666666667" y="0.0">com.company.classes.Roof</node>
+    <node x="22.0" y="706.0">com.company.classes.Freak.FreakToUser</node>
+    <node x="291.66666666666663" y="0.0">com.company.classes.Creature</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.company.classes.Freak" target="com.company.interfaces.Log" relationship="REALIZATION">
+      <point x="-51.25" y="-138.0" />
+      <point x="51.25" y="360.0" />
+      <point x="49.25" y="360.0" />
+      <point x="49.25" y="350.0" />
+      <point x="201.16666666666666" y="350.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.company.classes.Freak.FreakToUser" target="com.company.classes.Freak" relationship="INNER_CLASS">
+      <point x="0.0" y="-50.0" />
+      <point x="0.0" y="138.0" />
+    </edge>
+    <edge source="com.company.classes.People" target="com.company.interfaces.Log" relationship="REALIZATION">
+      <point x="-51.25" y="-127.0" />
+      <point x="291.66666666666663" y="340.0" />
+      <point x="201.16666666666666" y="340.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.company.classes.Roof.RoofManager" target="com.company.classes.Roof" relationship="INNER_CLASS">
+      <point x="0.0" y="-83.0" />
+      <point x="0.0" y="171.0" />
+    </edge>
+    <edge source="com.company.classes.Freak" target="com.company.classes.Creature" relationship="GENERALIZATION">
+      <point x="51.25" y="-138.0" />
+      <point x="153.75" y="360.0" />
+      <point x="394.16666666666663" y="360.0" />
+      <point x="0.0" y="160.0" />
+    </edge>
+    <edge source="com.company.classes.Freak" target="com.company.interfaces.Flying" relationship="REALIZATION">
+      <point x="-51.25" y="-138.0" />
+      <point x="51.25" y="360.0" />
+      <point x="49.25" y="360.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.company.classes.People" target="com.company.classes.Creature" relationship="GENERALIZATION">
+      <point x="51.25" y="-127.0" />
+      <point x="0.0" y="160.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9546925566343042" showDependencies="false" x="490.5" y="453.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -21,7 +21,7 @@ public class Freak extends Creature implements Flying, Log {
     }
 
     public class FreakToUser {
-        private Map<String, String> dialogDict = new HashMap<String, String>();
+        static private Map<String, String> dialogDict = new HashMap<String, String>();
         private static String userName = "";
         private String answer = "";
         private Scanner in = new Scanner(System.in);
@@ -54,7 +54,7 @@ public class Freak extends Creature implements Flying, Log {
         }
 
         public void speakWithUser() {
-            boolean isAnsExist = true;
+            boolean isAnsExist = false;
             String unknownAns = "";
 
             pickUp();
@@ -67,9 +67,9 @@ public class Freak extends Creature implements Flying, Log {
             for (int i = 0; i < keys.length; i++){
                 if (answer.contains(keys[i])){
                     System.out.printf("%s: %s", getName(), dialogDict.get(keys[i]));
-                    continue;
+                    isAnsExist = true;
+                    break;
                 }
-                isAnsExist = false;
                 unknownAns = answer;
             }
             if (!isAnsExist){
@@ -160,7 +160,7 @@ public class Freak extends Creature implements Flying, Log {
 
     @Override
     public void fly() {
-        System.out.printf("%s is flying! Awesome!", getName());
+        System.out.printf("%s is flying! Awesome!\n", getName());
     }
 
     @Override
